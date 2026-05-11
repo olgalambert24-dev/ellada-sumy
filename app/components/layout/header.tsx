@@ -7,15 +7,12 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold">
           Еллада
         </Link>
-        <nav className="hidden md:flex gap-6">
-          <Link href="/pro-nas" className="hover:underline">Про нас</Link>
-          <Link href="/poslugi" className="hover:underline">Послуги</Link>
-          <Link href="/portfolio" className="hover:underline">Портфоліо</Link>
-          <Link href="/avtoram" className="hover:underline">Авторам</Link>
-          <Link href="/blog" className="hover:underline">Блог</Link>
-          <Link href="/kontakty" className="hover:underline">Контакти</Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
+       <nav className="hidden md:flex gap-6">
+  <Link href="/pro-nas" className="hover:underline">Про нас</Link>
+  <Link href="/poslugi" className="hover:underline">Послуги</Link>
+  <Link href="/portfolio" className="hover:underline">Портфоліо</Link>
+  <Link href="/avtoram" className="hover:underline">Авторам</Link>
+  <Link href="/vidguki" className="hover:underline">Відгуки</Link>
+  <Link href="/blog" className="hover:underline">Блог</Link>
+  <Link href="/kontakty" className="hover:underline">Контакти</Link>
+</nav>
