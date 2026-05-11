@@ -1,12 +1,6 @@
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      <header className="bg-amber-700 text-white py-6">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-3xl font-bold">Видавничий будинок "Еллада"</h1>
-          <p className="mt-2">м. Суми - поліграфія повного циклу з 2000 року</p>
-        </div>
-      </header>
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold mb-6">Наші послуги</h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -64,10 +58,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <footer className="bg-amber-800 text-white py-6 text-center">
-        <p>2025 Видавничий будинок "Еллада". Всі права захищені.</p>
-        <p className="mt-2 text-sm">м. Суми, Україна</p>
-      </footer>
     </main>
   );
 }
