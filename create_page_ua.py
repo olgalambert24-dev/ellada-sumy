@@ -1,4 +1,4 @@
-export default function HomePage() {
+content = r'''export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <header className="bg-amber-700 text-white py-6">
@@ -71,3 +71,9 @@ export default function HomePage() {
     </main>
   );
 }
+'''
+
+with open('app/page.tsx', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print('Done!')
