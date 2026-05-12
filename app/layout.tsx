@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
+import SchemaOrg from "./components/shared/schema-org";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,20 +17,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Видавничий будинок «Еллада» | Друкарня та дизайн-студія в Сумах",
-    template: "%s | Еллада",
+    default: "Vydavnychyi budynok Ellada | Drukarnia ta dyzain-studia v Sumakh",
+    template: "%s | Ellada",
   },
-  description: "Видавничий будинок «Еллада» — книжне видавництво, дизайн-студія та друкарня повного циклу в Сумах з 2000 року. Друк книг, рекламної поліграфії.",
-  keywords: ["видавництво", "друкарня", "поліграфія", "Суми", "книги", "дизайн", "друк"],
-  authors: [{ name: "Видавничий будинок «Еллада»" }],
-  openGraph: {
-    type: "website",
-    locale: "uk_UA",
-    url: "https://ellada-sumy.com",
-    siteName: "Видавничий будинок «Еллада»",
-    title: "Видавничий будинок «Еллада»",
-    description: "Книжне видавництво, дизайн-студія та друкарня повного циклу в Сумах",
-  },
+  description: "Vydavnychyi budynok Ellada - knyzhne vydavnytstvo, dyzain-studia ta drukarnia povnoho tsyklu v Sumakh z 2000 roku.",
 };
 
 export default function RootLayout({
@@ -40,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <SchemaOrg />
         <Header />
         {children}
         <Footer />
