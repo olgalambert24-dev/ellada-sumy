@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Avtoram",
+  description: "Informatsiia dlia avtoriv. Yak vydaty knyhu v Sumakh. Etapy, vartist, vidpovidi na pytannia.",
+};
+
+
 export default function AvtoramPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

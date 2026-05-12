@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Novyny polihrafii, porady dlia avtoriv, stati pro druk ta dyzain.",
+};
+
+
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Posluhy",
+  description: "Povnyi spektr polihrafichnykh posluh: vydavnytstvo, dyzain, druk, pisliadrukarska obrobka.",
+};
+
+
 export default function PoslugiPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

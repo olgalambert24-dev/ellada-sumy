@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vidhuky",
+  description: "Vidhuky kliientiv vydavnychoho budynku Ellada.",
+};
+
+
 export default function VidgukiPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

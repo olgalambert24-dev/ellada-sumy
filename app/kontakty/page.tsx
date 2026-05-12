@@ -1,123 +1,78 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kontakty",
+  description: "Kontakty vydavnychoho budynku Ellada. Adresa, telefon, email m. Sumy.",
+};
+
 'use client';
 
 import { useState } from 'react';
 
 export default function KontaktyPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [isSent, setIsSent] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      
-      if (response.ok) {
-        setIsSent(true);
-        setFormData({ name: '', phone: '', email: '', message: '' });
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    setIsSent(true);
   };
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-semibold mb-6">Контакти</h2>
+        <h2 className="text-2xl font-semibold mb-6">Kontakty</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Контактная информация */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Наші контакти</h3>
-            <p className="mb-2"><strong>Адреса:</strong> м. Суми, Україна</p>
-            <p className="mb-2"><strong>Телефон:</strong> +380 (XXX) XXX-XXX</p>
+            <h3 className="text-xl font-semibold mb-4">Nashi kontakty</h3>
+            <p className="mb-2"><strong>Adresa:</strong> m. Sumy, Ukraina</p>
+            <p className="mb-2"><strong>Telefon:</strong> +380 (XXX) XXX-XXX</p>
             <p className="mb-2"><strong>Email:</strong> info@ellada-sumy.com</p>
-            <p className="mb-2"><strong>Години роботи:</strong> Пн-Пт 9:00-18:00</p>
           </div>
 
-          {/* Форма обратной связи */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Написати нам</h3>
+            <h3 className="text-xl font-semibold mb-4">Napysaty nam</h3>
             
             {isSent ? (
-              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                Дякуємо! Ваше повідомлення відправлено. Ми зв'яжемося з вами найближчим часом.
+              <div className="bg-green-100 text-green-700 px-4 py-3 rounded">
+                Diakuemo! Vasha povidomlennia vidpravleno.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Ваше ім'я *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    placeholder="Іван Іванов"
-                  />
+                  <label className="block text-sm font-medium mb-1">Vashe imia</label>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full px-3 py-2 border rounded-lg" />
                 </div>
-
                 <div>
-                  <label className="block text-sm font-medium mb-1">Телефон *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    placeholder="+380 XX XXX XX XX"
-                  />
+                  <label className="block text-sm font-medium mb-1">Telefon</label>
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="w-full px-3 py-2 border rounded-lg" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    placeholder="email@example.com"
-                  />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg" />
                 </div>
-
                 <div>
-                  <label className="block text-sm font-medium mb-1">Повідомлення *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    placeholder="Опишіть ваше замовлення або питання..."
-                  />
+                  <label className="block text-sm font-medium mb-1">Povidomlennia</label>
+                  <textarea name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-3 py-2 border rounded-lg" />
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-amber-700 text-white py-2 px-4 rounded-lg hover:bg-amber-800 transition-colors disabled:opacity-50"
+                <button type="submit" className="w-full bg-amber-700 text-white py-2 px-4 rounded-lg hover:bg-amber-800">
+                  Vidpravyty
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

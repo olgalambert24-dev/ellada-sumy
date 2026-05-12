@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kalkuliator tiazahu",
+  description: "Onlain-kalkuliator vartosti druku. Rozrakhuite tsinu vydannia knyhy.",
+};
+
+
 export default function KalkulyatorPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

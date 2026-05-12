@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pro nas",
+  description: "Istoriia vydavnychoho budynku Ellada. Polihrafiia povnoho tsyklu v Sumakh z 2000 roku.",
+};
+
+
 export default function ProNasPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">

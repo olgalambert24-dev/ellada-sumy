@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "Nashi roboty ta proiekty. Pryklady knyzhkovykh vydan, reklamnoi ta dilovoi polihrafii.",
+};
+
+
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
