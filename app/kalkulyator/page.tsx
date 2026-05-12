@@ -47,10 +47,10 @@ export default function KalkulyatorPage() {
       uv: 20
     };
 
-    const pagePrice = colorPrices[params.color] * formatMultipliers[params.format] * paperMultipliers[params.paper];
+    const pagePrice = (colorPrices as any)[params.color] * (formatMultipliers as any)[params.format] * (paperMultipliers as any)[params.paper];
     const pagesTotal = params.pages * params.copies * pagePrice;
-    const bindingTotal = params.copies * bindingPrices[params.binding];
-    const coverTotal = params.copies * coverPrices[params.cover];
+    const bindingTotal = params.copies * (bindingPrices as any)[params.binding];
+    const coverTotal = params.copies * (coverPrices as any)[params.cover];
     
     const overhead = (pagesTotal + bindingTotal + coverTotal) * 0.1;
     
@@ -213,23 +213,23 @@ export default function KalkulyatorPage() {
                   </div>
                   <div className="flex justify-between">
                     <span>Формат:</span>
-                    <span>{formatLabels[params.format]}</span>
+                    <span>{(formatLabels as any)[params.format]}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Друк:</span>
-                    <span>{colorLabels[params.color]}</span>
+                    <span>{(colorLabels as any)[params.color]}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Папір:</span>
-                    <span>{paperLabels[params.paper]}</span>
+                    <span>{(paperLabels as any)[params.paper]}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Переплет:</span>
-                    <span>{bindingLabels[params.binding]}</span>
+                    <span>{(bindingLabels as any)[params.binding]}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Обкладинка:</span>
-                    <span>{coverLabels[params.cover]}</span>
+                    <span>{(coverLabels as any)[params.cover]}</span>
                   </div>
                 </div>
                 
