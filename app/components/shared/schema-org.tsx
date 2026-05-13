@@ -5,8 +5,8 @@ export default function SchemaOrg() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Видавничий будинок «Еллада»',
-    url: 'https://ellada-sumy.com',
-    logo: 'https://ellada-sumy.com/logo.png',
+    url: 'https://ellada-sumy.com.ua',
+    logo: 'https://ellada-sumy.com.ua/logo.png',
     description: 'Книжне видавництво, дизайн-студія та друкарня повного циклу в Сумах',
     address: {
       '@type': 'PostalAddress',
