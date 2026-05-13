@@ -1,12 +1,15 @@
 import { Metadata } from "next";
+import { sanityClient } from "@/lib/sanity/client";
+import { servicesQuery } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "Posluhy",
-  description: "Povnyi spektr polihrafichnykh posluh: vydavnytstvo, dyzain, druk, pisliadrukarska obrobka.",
+  title: "Послуги",
+  description: "Повний спектр поліграфічних послуг: видавництво, дизайн, друк, післядрукарська обробка.",
 };
 
+export default async function PoslugiPage() {
+  const services = await sanityClient.fetch(servicesQuery);
 
-export default function PoslugiPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <header className="bg-amber-700 text-white py-6">
@@ -16,22 +19,24 @@ export default function PoslugiPage() {
       </header>
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="border rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">Книжне видавництво</h3>
-            <p>Видання книг різних жанрів та форматів.</p>
-          </div>
-          <div className="border rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">Дизайн-студія</h3>
-            <p>Розробка макетів, верстка, дизайн обкладинок.</p>
-          </div>
-          <div className="border rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">Друкарня</h3>
-            <p>Друкарня повного циклу на сучасному обладнанні.</p>
-          </div>
-          <div className="border rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">Післядрукарська обробка</h3>
-            <p>Брошурування, палітурка, ламінування, тиснення.</p>
-          </div>
+          {services.map((service: any) => (
+            <div key={service._id} className="border rounded-lg p-6 shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              {service.features && service.features.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-500">
+                  {service.features.map((feature: string, index: number) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              )}
+              {service.priceFrom && (
+                <p className="mt-4 text-amber-700 font-semibold">
+                  Від {service.priceFrom} грн
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </main>
