@@ -11,3 +11,14 @@ export const servicesQuery = groq`*[_type == "service"] | order(order asc) {
   features,
   priceFrom
 }`
+// Одна услуга по slug
+export const serviceBySlugQuery = (slug: string) => groq`*[_type == "service" && slug.current == "${slug}"][0] {
+  _id,
+  title,
+  slug,
+  description,
+  icon,
+  "image": image.asset->url,
+  features,
+  priceFrom
+}`
