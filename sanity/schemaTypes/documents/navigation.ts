@@ -45,10 +45,11 @@ export const navigationType = defineType({
         header: 'Головне меню',
         footer: 'Футер',
         mobile: 'Мобільне',
-      }
+      } as const
+      
       return {
         title: title || 'Без назви',
-        subtitle: labels[location || ''] || location,
+        subtitle: (location && labels[location as keyof typeof labels]) || location || 'Без назви',
       }
     },
   },
