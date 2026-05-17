@@ -7,16 +7,16 @@ import SchemaOrg from "./components/shared/schema-org";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"], // Добавлено cyrillic для украинского/русского
+  subsets: ["latin", "cyrillic"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin", "cyrillic"], // Добавлено cyrillic
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ellada-sumy.com.ua"), // Добавлено!
+  metadataBase: new URL("https://ellada-sumy.com.ua"),
   title: {
     default: "Видавничий будинок Еллада | Друкарня та дизайн-студія в Сумах",
     template: "%s | Еллада",
@@ -62,12 +62,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: Readonly<<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="uk">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <SchemaOrg />
         <Header />
         {children}
