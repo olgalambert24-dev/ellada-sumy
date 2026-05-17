@@ -1,0 +1,8 @@
+{
+  "_type": "service",
+  "title": "Дизайн-студія",
+  "slug": {"_type": "slug", "current": "dyayn-studiya"},
+  "description": "Розробка дизайну та макетів",
+  "priceFrom": 2000,
+  "features": ["Графічний дизайн", "Верстка", "Підготовка до друку"]
+}

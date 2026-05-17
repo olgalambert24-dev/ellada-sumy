@@ -1,0 +1,8 @@
+{
+  "_type": "service",
+  "title": "Друкарня",
+  "slug": {"_type": "slug", "current": "drukarnia"},
+  "description": "Професійний друк будь-якої складності",
+  "priceFrom": 1000,
+  "features": ["Офсетний друк", "Цифровий друк", "Широкоформатний друк"]
+}

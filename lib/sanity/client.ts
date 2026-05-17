@@ -1,8 +1,8 @@
 import { createClient } from '@sanity/client'
 
 export const sanityClient = createClient({
-  projectId: '26s1il5r',
+  projectId: '3k5drimj',        // ✅ Має співпадати з sanity.config.ts!
   dataset: 'production',
   apiVersion: '2026-05-13',
-  useCdn: true,
+  useCdn: false,                // Рекомендовано для development
 })

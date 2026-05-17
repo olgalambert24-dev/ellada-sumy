@@ -1,15 +1,60 @@
-import type {StructureResolver} from 'sanity/structure'
+import {StructureBuilder} from 'sanity/structure'
+import {
+  CogIcon,
+  ComposeIcon,
+  BookIcon,
+  DocumentTextIcon,
+  TagIcon,
+  UserIcon,
+  LinkIcon,
+} from '@sanity/icons'
 
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
-export const structure: StructureResolver = (S) =>
+export const structure = (S: StructureBuilder) =>
   S.list()
-    .title('Контент')
+    .title('Контент "Еллади"')
     .items([
-      S.documentTypeListItem('post').title('Пости'),
-      S.documentTypeListItem('category').title('Категорії'),
-      S.documentTypeListItem('author').title('Автори'),
+      // Singleton: Налаштування
+      S.listItem()
+        .title('Налаштування сайту')
+        .icon(CogIcon)
+        .child(
+          S.editor()
+            .id('settings')
+            .schemaType('settings')
+            .documentId('settings'),
+        ),
       S.divider(),
-      ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['post', 'category', 'author'].includes(item.getId()!),
-      ),
+      // Сторінки
+      S.listItem()
+        .title('Сторінки')
+        .icon(DocumentTextIcon)
+        .child(S.documentTypeList('page')),
+      // Книги
+      S.listItem()
+        .title('Книги')
+        .icon(BookIcon)
+        .child(S.documentTypeList('book')),
+      // Блог
+      S.listItem()
+        .title('Блог')
+        .icon(ComposeIcon)
+        .child(
+          S.documentTypeList('post')
+            .title('Статті')
+            .defaultOrdering([{field: 'publishedAt', direction: 'desc'}]),
+        ),
+      S.divider(),
+      // Довідники
+      S.listItem()
+        .title('Автори')
+        .icon(UserIcon)
+        .child(S.documentTypeList('author')),
+      S.listItem()
+        .title('Категорії')
+        .icon(TagIcon)
+        .child(S.documentTypeList('category')),
+      S.listItem()
+        .title('Навігація')
+        .icon(LinkIcon)
+        .child(S.documentTypeList('navigation')),
     ])

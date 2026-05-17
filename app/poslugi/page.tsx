@@ -2,6 +2,15 @@ import { Metadata } from "next";
 import { sanityClient } from "@/lib/sanity/client";
 import { servicesQuery } from "@/lib/sanity/queries";
 
+// ✅ Інтерфейс на рівні модуля
+interface ServiceType {
+  _id: string;
+  title: string;
+  description?: string;
+  priceFrom?: number;
+  features?: string[];
+}
+
 export const metadata: Metadata = {
   title: "Послуги",
   description: "Повний спектр поліграфічних послуг: видавництво, дизайн, друк, післядрукарська обробка.",
@@ -19,7 +28,7 @@ export default async function PoslugiPage() {
       </header>
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service: any) => (
+          {services.map((service: ServiceType) => (
             <div key={service._id} className="border rounded-lg p-6 shadow-sm">
               <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>

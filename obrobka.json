@@ -1,0 +1,8 @@
+{
+  "_type": "service",
+  "title": "Післядрукарська обробка",
+  "slug": {"_type": "slug", "current": "pislyadrukarska-obrobka"},
+  "description": "Палітурка, ламінування, тиснення",
+  "priceFrom": 500,
+  "features": ["Тверда палітурка", "Ламінування", "Тиснення золотом"]
+}

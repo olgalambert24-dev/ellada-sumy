@@ -1,0 +1,11 @@
+{
+  "_type": "service",
+  "title": "Книжне видання",
+  "slug": {
+    "_type": "slug",
+    "current": "knyzhne-vydannia"
+  },
+  "description": "Повний цикл виробництва книг: друк, палітурка, дизайн",
+  "priceFrom": 5000,
+  "features": ["Друк", "Палітурка", "Дизайн"]
+}

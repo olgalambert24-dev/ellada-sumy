@@ -3,7 +3,7 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const authorType = defineType({
   name: 'author',
- title: 'Автори',
+  title: 'Author',
   type: 'document',
   icon: UserIcon,
   fields: [
