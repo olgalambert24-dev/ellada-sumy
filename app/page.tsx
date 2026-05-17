@@ -73,8 +73,7 @@ export default async function HomePage() {
             </Link>
             <Link
               href="/avtoram"
-              className="border-2 border-white text-white hover:bg-white px-8 py-3 rounded-lg font-semibold transition"
-              style={{ hover: { color: colors.primary } }}
+              className="border-2 border-white text-white hover:bg-white hover:text-[#8B1A2B] px-8 py-3 rounded-lg font-semibold transition"
             >
               Подати рукопис
             </Link>
@@ -271,7 +270,7 @@ export default async function HomePage() {
             </Link>
             <Link
               href="/kalkulyator"
-              className="border-2 border-white text-white hover:bg-white px-8 py-3 rounded-lg font-semibold transition"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#8B1A2B] px-8 py-3 rounded-lg font-semibold transition"
             >
               Калькулятор
             </Link>
